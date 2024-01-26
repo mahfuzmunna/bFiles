@@ -1,41 +1,56 @@
 [versions]
 agp = "8.1.2"
-org-jetbrains-kotlin-android = "1.8.10"
+org-jetbrains-kotlin-android = "1.9.22"
 core-ktx = "1.12.0"
 junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
-lifecycle-runtime-ktx = "2.6.2"
+lifecycle-version = "2.7.0"
 activity-compose = "1.8.2"
-compose-bom = "2023.10.01"
+compose-bom = "2024.01.00"
 lottieVersion = "6.2.0"
 nav_version = "2.7.6"
-
+hilt_version = "2.48"
+hilt_nav_compose_version = "1.1.0"
+coroutines_version = "1.7.3"
+coil_compose = "2.5.0"
 
 [libraries]
-
-
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-version" }
+lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle-version" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
 ui = { group = "androidx.compose.ui", name = "ui" }
 ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+material = { group = "androidx.compose.material", name = "material" }
+material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
+material3 = { group = "androidx.compose.material3", name = "material3" }
+foundation = { group = "androidx.compose.foundation", name = "foundation" }
+runtime = { group = "androidx.compose.runtime", name = "runtime" }
+animation = { group = "androidx.compose.animation", name = "animation" }
+lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottieVersion" }
+nav-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "nav_version" }
+nav-compose-hilt = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt_nav_compose_version" }
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines_version" }
+coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android" , version.ref = "coroutines_version"}
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt_version" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt_version" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil_compose" }
+
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-material3 = { group = "androidx.compose.material3", name = "material3" }
-
-lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottieVersion" }
-nav-compose = {group = "androidx.navigation", name = "navigation-compose", version.ref = "nav_version"}
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }
 org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
+org-jetbrains-kotlin-kapt = {id = "org.jetbrains.kotlin.kapt", version.ref = "org-jetbrains-kotlin-android"}
+dagger-hilt = {id = "com.google.dagger.hilt.android", version.ref = "hilt_version"}
 
 [bundles]
 
