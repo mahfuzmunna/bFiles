@@ -21,6 +21,7 @@ class MainActivity : ComponentActivity() {
             BFilesTheme {
                 val navController = rememberNavController()
                 SetupNavGraph(navHostController = navController)
+
             }
         }
     }
