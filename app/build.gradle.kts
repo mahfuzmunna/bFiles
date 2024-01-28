@@ -2,8 +2,8 @@
 plugins {
     alias(libs.plugins.com.android.application)
     alias(libs.plugins.org.jetbrains.kotlin.android)
-    alias(libs.plugins.dagger.hilt)
-    alias(libs.plugins.org.jetbrains.kotlin.kapt)
+//    alias(libs.plugins.dagger.hilt)
+//    alias(libs.plugins.org.jetbrains.kotlin.kapt)
 }
 
 android {
@@ -33,11 +33,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -55,6 +55,7 @@ android {
 dependencies {
 
     implementation(libs.core.ktx)
+    implementation(libs.appcompat)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.activity.compose)
@@ -62,7 +63,7 @@ dependencies {
     implementation(libs.ui)
     implementation(libs.ui.graphics)
     implementation(libs.ui.tooling.preview)
-    implementation(libs.material)
+//    implementation(libs.material)
     implementation(libs.material.icons.extended)
     implementation(libs.material3)
     implementation(libs.foundation)
@@ -70,13 +71,13 @@ dependencies {
     implementation(libs.animation)
     implementation(libs.lottie)
     implementation(libs.nav.compose)
-    implementation(libs.nav.compose.hilt)
-    implementation(libs.coroutines.core)
-    implementation(libs.coroutines.android)
+//    implementation(libs.nav.compose.hilt)
+//    implementation(libs.coroutines.core)
+//    implementation(libs.coroutines.android)
 
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
-    implementation(libs.coil.compose)
+//    implementation(libs.hilt.android)
+//    kapt(libs.hilt.compiler)
+//    implementation(libs.coil.compose)
 
     implementation(libs.accompanist.permissions)
 
