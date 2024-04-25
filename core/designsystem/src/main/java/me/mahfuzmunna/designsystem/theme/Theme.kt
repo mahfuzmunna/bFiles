@@ -1,4 +1,4 @@
-package me.mahfuzmunna.bfiles.ui.theme
+package me.mahfuzmunna.designsystem.theme
 
 import android.app.Activity
 import android.os.Build
