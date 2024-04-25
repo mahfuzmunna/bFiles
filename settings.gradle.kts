@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "bFiles"
 include(":app")
+include(":core:designsystem")
