@@ -30,7 +30,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import me.mahfuzmunna.bfiles.ui.theme.BFilesTheme
+import me.mahfuzmunna.designsystem.theme.BFilesTheme
 
 class MainActivity : AppCompatActivity() {
 
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun renderEnableAccessView() {
         setContent {
-            BFilesTheme {
+            me.mahfuzmunna.designsystem.theme.BFilesTheme {
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun renderComposeView() {
         setContent {
-            BFilesTheme {
+            me.mahfuzmunna.designsystem.theme.BFilesTheme {
                 Box {
                     Text(text = "TEST")
 
