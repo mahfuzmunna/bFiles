@@ -6,6 +6,6 @@
     <style name="Theme.BFiles.Splash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenAnimatedIcon">@drawable/baseline_folder_copy_24</item>
         <item name="postSplashScreenTheme">@style/Theme.BFiles</item>
-        <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenBackground">@color/black</item>
     </style>
 </resources>

@@ -1,6 +1,6 @@
 plugins {
-    alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.org.jetbrains.kotlin.android)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
 }
 
 android {
@@ -27,6 +27,12 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.8"
+    }
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -34,12 +40,15 @@ android {
 
 dependencies {
 
-    implementation(libs.core.ktx)
-    implementation(libs.activity.compose)
-    implementation(libs.material3)
-    implementation(libs.foundation)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.foundation)
+    implementation(libs.androidx.compose.foundationLayout)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.runtime)
+
+    implementation(libs.androidx.core.ktx)
 
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.androidx.test.espressoCore)
+    androidTestImplementation(libs.androidx.test.extJunit)
 }

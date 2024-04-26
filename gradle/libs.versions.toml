@@ -1,68 +1,46 @@
 [versions]
-compileSdk = "34"
-minSdk = "24"
-targetSdk = "34"
-versionCode = "1"
-versionName = "1.0"
-agp = "8.3.0"
-appcompat = "1.6.1"
-org-jetbrains-kotlin-android = "1.9.22"
-core-ktx = "1.12.0"
+androidGradlePlugin = "8.3.2"
+androidxActivityCompose = "1.9.0"
+androidxAppCompat = "1.6.1"
+androidxComposeBom = "2024.04.01"
+androidxCoreKtx = "1.13.0"
+androidxCoreSplashscreen = "1.0.1"
+androidxLifecycle = "2.7.0"
+androidxTestExtJunit = "1.1.5"
+androidxTestEspresso = "3.5.1"
+androidxMaterial3Android = "1.2.1"
 junit = "4.13.2"
-androidx-test-ext-junit = "1.1.5"
-espresso-core = "3.5.1"
-lifecycle-version = "2.7.0"
-activity-compose = "1.8.2"
-compose-bom = "2024.04.01"
-lottieVersion = "6.2.0"
-nav_version = "2.7.6"
-hilt_version = "2.50"
-hilt_nav_compose_version = "1.1.0"
-coroutines_version = "1.7.3"
-coil_compose = "2.5.0"
-accompanist_version = "0.34.0"
-material = "1.11.0"
+kotlinAndroid = "1.9.22"
 
 [libraries]
-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
-appcompat = {group = "androidx.appcompat", name ="appcompat", version.ref = "appcompat"}
-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-version" }
-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycle-version" }
-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
-ui = { group = "androidx.compose.ui", name = "ui" }
-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-material = { group = "androidx.compose.material", name = "material" }
-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
-material3 = { group = "androidx.compose.material3", name = "material3" }
-foundation = { group = "androidx.compose.foundation", name = "foundation" }
-runtime = { group = "androidx.compose.runtime", name = "runtime" }
-animation = { group = "androidx.compose.animation", name = "animation" }
-lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottieVersion" }
-nav-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "nav_version" }
-nav-compose-hilt = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt_nav_compose_version" }
-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines_version" }
-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android" , version.ref = "coroutines_version"}
-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt_version" }
-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt_version" }
-coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil_compose" }
-accompanist-permissions = {group = "com.google.accompanist", name="accompanist-permissions", version.ref = "accompanist_version"}
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivityCompose" }
+androidx-appcompat = {group = "androidx.appcompat", name ="appcompat", version.ref = "androidxAppCompat"}
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
+androidx-compose-animation = { group = "androidx.compose.animation", name = "animation" }
+androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation"}
+androidx-compose-foundationLayout = { group = "androidx.compose.foundation", name = "foundation-layout"}
+androidx-compose-material3 = {group = "androidx.compose.material3", name= "material3"}
+androidx-compose-material3Android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "androidxMaterial3Android" }
+androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime" }
+androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-compose-uiGraphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCoreKtx" }
+androidx-core-splashscreen = {group = "androidx.core", name="core-splashscreen", version.ref= "androidxCoreSplashscreen"}
+androidx-lifecycle-runtimeKtx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
+androidx-lifecycle-viewmodelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
 
+androidx-compose-uiTestJunit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-compose-uiTestManifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-compose-uiTooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-compose-uiToolingPreview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-test-extJunit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxTestExtJunit" }
+androidx-test-espressoCore = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidxTestEspresso" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-google-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
-com-android-application = { id = "com.android.application", version.ref = "agp" }
-org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
-org-jetbrains-kotlin-kapt = {id = "org.jetbrains.kotlin.kapt", version.ref = "org-jetbrains-kotlin-android"}
-dagger-hilt = {id = "com.google.dagger.hilt.android", version.ref = "hilt_version"}
-androidLibrary = { id = "com.android.library", version.ref = "agp" }
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+android-library = { id = "com.android.library", version.ref = "androidGradlePlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinAndroid" }
 
 [bundles]
 
