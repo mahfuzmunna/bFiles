@@ -1,4 +1,3 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -11,6 +10,7 @@ android {
     defaultConfig {
         applicationId = "me.mahfuzmunna.bfiles"
         minSdk = 24
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -40,7 +40,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.8"
+        kotlinCompilerExtensionVersion = "1.5.1"
     }
     packaging {
         resources {
@@ -50,7 +50,7 @@ android {
 }
 
 dependencies {
-
+//    implementation(libs.accompanist.permissions)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.appcompat)
 
@@ -59,6 +59,7 @@ dependencies {
     implementation(libs.androidx.compose.foundation)
     implementation(libs.androidx.compose.foundationLayout)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.materialIconsExtended)
     implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.uiGraphics)
@@ -70,7 +71,8 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodelCompose)
 
 //    implementation(project(":core:data"))
-    implementation(project(":core:designsystem"))
+//    implementation(project(":core:designsystem"))
+//    implementation(project(":core:ui"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.extJunit)

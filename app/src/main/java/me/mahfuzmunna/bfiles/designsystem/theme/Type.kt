@@ -1,4 +1,4 @@
-package me.mahfuzmunna.designsystem.theme
+package me.mahfuzmunna.bfiles.designsystem.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
