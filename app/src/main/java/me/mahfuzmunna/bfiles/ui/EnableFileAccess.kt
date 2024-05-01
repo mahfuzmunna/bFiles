@@ -1,4 +1,4 @@
-package me.mahfuzmunna.ui
+package me.mahfuzmunna.bfiles.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -25,19 +25,15 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawWithCache
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import kotlin.math.tan
+import me.mahfuzmunna.bfiles.ui.extension.addGradientToBox
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -50,32 +46,10 @@ fun EnableFileAccessView(
     ) {
         val colorScheme = MaterialTheme.colorScheme
         Box(
-            modifier = Modifier.fillMaxSize()
-                .drawWithCache {
-                    val offset = size.height * tan(
-                        Math.toRadians(11.11).toFloat()
-                    )
-                    val start = Offset(size.width/2+offset/2, 0f)
-                    val end = Offset(size.width/2-offset/2, size.height)
+            modifier = Modifier
+                .fillMaxSize()
+                .addGradientToBox(colorScheme)
 
-                    val topGradient = Brush.linearGradient(
-                        0f to colorScheme.inverseOnSurface,
-                        0f to Color.Transparent,
-                        start = start,
-                        end = end,
-                    )
-                    val bottomGradient = Brush.linearGradient(
-                        0f to Color.Transparent,
-                        0.22f to colorScheme.primaryContainer,
-                        start = start,
-                        end = end
-                    )
-
-                    onDrawBehind {
-                        drawRect(topGradient)
-                        drawRect(bottomGradient)
-                    }
-                }
         ) {
             Column(
                 modifier = Modifier.fillMaxSize(),

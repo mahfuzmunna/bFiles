@@ -13,9 +13,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.material3.Text
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import me.mahfuzmunna.bfiles.designsystem.theme.BFilesTheme
-import me.mahfuzmunna.ui.EnableFileAccessView
+import me.mahfuzmunna.bfiles.ui.EnableFileAccessView
 
 class MainActivity : AppCompatActivity() {
 
@@ -96,7 +95,7 @@ class MainActivity : AppCompatActivity() {
         // App has Storage permission & can go forward
         setContent {
             BFilesTheme {
-                Text(text = "Hello World")
+                MainScreen()
             }
         }
     }

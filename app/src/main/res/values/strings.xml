@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">bFiles</string>
+    <string name="navigationButton">Navigation Item</string>
+    <string name="actionButton">Action Button</string>
 </resources>
