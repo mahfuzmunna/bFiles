@@ -18,13 +18,13 @@ fun Modifier.addGradientToBox(colorScheme: ColorScheme): Modifier {
 
         val topGradient = Brush.linearGradient(
             0f to colorScheme.inverseOnSurface,
-            0f to Color.Transparent,
+            0.725f to Color.Transparent,
             start = start,
             end = end,
         )
         val bottomGradient = Brush.linearGradient(
-            0f to Color.Transparent,
-            0.22f to colorScheme.primaryContainer,
+            0.225f to Color.Transparent,
+            1f to colorScheme.primaryContainer,
             start = start,
             end = end
         )
