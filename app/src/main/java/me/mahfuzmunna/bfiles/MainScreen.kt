@@ -9,22 +9,27 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import me.mahfuzmunna.bfiles.designsystem.component.BFilesNavigationBar
+import me.mahfuzmunna.bfiles.designsystem.component.BFilesNavigationBarItem
 import me.mahfuzmunna.bfiles.designsystem.component.BFilesTopAppBar
 import me.mahfuzmunna.bfiles.designsystem.theme.BFilesTheme
+import me.mahfuzmunna.bfiles.navigation.TopLevelDestination
 import me.mahfuzmunna.bfiles.ui.extension.addGradientToBox
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainScreen() {
+fun MainScreen(
+    selectedBottomBarItem : TopLevelDestination,
+    onSelectedBottomBarItem: (TopLevelDestination) -> Unit
+) {
     Surface(
         modifier = Modifier.fillMaxSize(),
     ) {
@@ -34,9 +39,18 @@ fun MainScreen() {
                 .fillMaxSize()
         ) {
             Scaffold(
+                containerColor = Color.Transparent,
                 bottomBar = {
                     BFilesNavigationBar {
-
+                        TopLevelDestination.entries.forEach {
+                            BFilesNavigationBarItem(
+                                selected = it == selectedBottomBarItem,
+                                onClick = { onSelectedBottomBarItem(it) },
+                                selectedIcon = it.selectedIcon,
+                                unselectedIcon = it.unselectedIcon,
+                                label = stringResource(id = it.iconTextResId)
+                            )
+                        }
                     }
                 }
             ) { padding ->
@@ -65,6 +79,8 @@ fun MainScreen() {
 @Composable
 private fun MainScreenPreview() {
     BFilesTheme {
-        MainScreen()
+        MainScreen(selectedBottomBarItem = TopLevelDestination.HOME) {
+
+        }
     }
 }

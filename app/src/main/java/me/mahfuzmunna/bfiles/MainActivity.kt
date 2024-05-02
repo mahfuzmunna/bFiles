@@ -9,14 +9,16 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.Settings
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material3.Text
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import me.mahfuzmunna.bfiles.designsystem.theme.BFilesTheme
 import me.mahfuzmunna.bfiles.ui.EnableFileAccessView
 
 class MainActivity : AppCompatActivity() {
+
+    val viewModel by viewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,7 +97,9 @@ class MainActivity : AppCompatActivity() {
         // App has Storage permission & can go forward
         setContent {
             BFilesTheme {
-                MainScreen()
+                MainScreen(selectedBottomBarItem = viewModel.selectedBottomBarItem.value) {
+                    viewModel.onSelectedBottomBarItem(it)
+                }
             }
         }
     }

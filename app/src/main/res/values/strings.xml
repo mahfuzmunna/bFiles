@@ -2,4 +2,10 @@
     <string name="app_name">bFiles</string>
     <string name="navigationButton">Navigation Item</string>
     <string name="actionButton">Action Button</string>
+    <string name="feature_home_nav_title">Overview</string>
+    <string name="feature_home_title">Overview</string>
+    <string name="feature_filesystem_nav_title">My Files</string>
+    <string name="feature_filesystem_title">My Files</string>
+    <string name="feature_extensions_nav_title">Extensions</string>
+    <string name="feature_extensions_title">Extensions</string>
 </resources>
