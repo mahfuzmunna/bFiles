@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import me.mahfuzmunna.bfiles.designsystem.component.BFilesNavigationBar
 import me.mahfuzmunna.bfiles.designsystem.component.BFilesTopAppBar
 import me.mahfuzmunna.bfiles.designsystem.theme.BFilesTheme
 import me.mahfuzmunna.bfiles.ui.extension.addGradientToBox
@@ -34,7 +35,7 @@ fun MainScreen() {
         ) {
             Scaffold(
                 bottomBar = {
-                    NavigationBar {
+                    BFilesNavigationBar {
 
                     }
                 }
