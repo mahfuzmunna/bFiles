@@ -8,38 +8,42 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Diamond
 import androidx.compose.material.icons.filled.Folder
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import me.mahfuzmunna.bfiles.designsystem.component.BFilesStorageOverviewContainer
-import me.mahfuzmunna.bfiles.designsystem.component.BFilesStorageOverviewItem
+import me.mahfuzmunna.bfiles.designsystem.component.BFilesStorageItem
 import me.mahfuzmunna.bfiles.designsystem.theme.BFilesTheme
+import me.mahfuzmunna.bfiles.navigation.BFilesScreen
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController : NavHostController) {
     Box(
         modifier = Modifier
 //            .addGradientToBox(MaterialTheme.colorScheme)
             .fillMaxSize()
     ) {
         Column {
-            BFilesStorageOverviewContainer {
+            BFilesStorageOverviewContainer() {
                 val storage = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
                     Environment.getStorageDirectory()
                 } else {
                     null
                 }
-                if (storage != null) {
-                    BFilesStorageOverviewItem(
+                val externalStorage = Environment.getExternalStorageDirectory()
+                if (externalStorage != null) {
+                    BFilesStorageItem(
                         title = "Internal Storage",
-                        subtitle = "${storage.freeSpace} / ${storage.totalSpace}",
+                        subtitle = "${externalStorage.absolutePath} ${externalStorage.freeSpace/(1024*1024*1024)} GB/${externalStorage.totalSpace/(1024*1024*1024)} GB",
                         leadingIcon = Icons.Filled.Folder,
                         trailingIcon = Icons.Filled.Diamond
                     ) {
-                        // Handle Diamond click
+                        navController.navigate(BFilesScreen.MyFiles.routeName)
                     }
                 }
+
 
             }
         }
@@ -47,12 +51,14 @@ fun HomeScreen() {
 }
 
 
-
-
 @Preview
 @Composable
 private fun HomeScreenPreview() {
     BFilesTheme {
-        HomeScreen()
+        HomeScreen(rememberNavController())
     }
+}
+
+private fun storageSpaceText(bytes : Long) : Double {
+    return bytes.div(1024).toDouble()
 }

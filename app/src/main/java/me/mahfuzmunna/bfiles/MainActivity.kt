@@ -14,16 +14,17 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import me.mahfuzmunna.bfiles.designsystem.theme.BFilesTheme
+import me.mahfuzmunna.bfiles.ui.BFilesApp
 import me.mahfuzmunna.bfiles.ui.EnableFileAccessView
+import me.mahfuzmunna.bfiles.ui.rememberBFilesAppState
 
 class MainActivity : AppCompatActivity() {
 
-    val viewModel by viewModels<MainViewModel>()
+    private val viewModel by viewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        val splashScreen = installSplashScreen()
-
 
         if (hasPermission()) {
             renderComposeView()
@@ -97,7 +98,11 @@ class MainActivity : AppCompatActivity() {
         // App has Storage permission & can go forward
         setContent {
             BFilesTheme {
-                MainScreen(selectedBottomBarItem = viewModel.selectedBottomBarItem.value) {
+                val appState = rememberBFilesAppState()
+                BFilesApp(
+                    selectedBottomBarItem = viewModel.selectedBottomBarItem.value,
+                    appState = appState
+                ) {
                     viewModel.onSelectedBottomBarItem(it)
                 }
             }
