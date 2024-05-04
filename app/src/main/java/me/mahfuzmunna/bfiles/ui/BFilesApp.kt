@@ -17,6 +17,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavDestination
+import androidx.navigation.NavDestination.Companion.hierarchy
 import me.mahfuzmunna.bfiles.designsystem.component.BFilesNavigationBar
 import me.mahfuzmunna.bfiles.designsystem.component.BFilesNavigationBarItem
 import me.mahfuzmunna.bfiles.designsystem.component.BFilesTopAppBar
@@ -43,20 +45,11 @@ fun BFilesApp(
             Scaffold(
                 containerColor = Color.Transparent,
                 bottomBar = {
-                    BFilesNavigationBar {
-                        TopLevelDestination.entries.forEach {
-                            BFilesNavigationBarItem(
-                                selected = it == selectedBottomBarItem,
-                                onClick = {
-                                    onSelectedBottomBarItem(it)
-                                    appState.bFilesNavigateToTopLevelDestinations(it)
-                                },
-                                selectedIcon = it.selectedIcon,
-                                unselectedIcon = it.unselectedIcon,
-                                label = stringResource(id = it.iconTextResId)
-                            )
-                        }
-                    }
+                    BFilesBottomBar(
+                        destinations = appState.topLevelDestinations,
+                        currentDestination = appState.currentDestination,
+                        onNavigateToDestination = appState::bFilesNavigateToTopLevelDestinations
+                    )
                 }
             ) { padding ->
                 Log.d("BFILES", "$padding is unused")
@@ -80,6 +73,35 @@ fun BFilesApp(
         }
     }
 }
+
+@Composable
+fun BFilesBottomBar(
+    modifier: Modifier = Modifier,
+    destinations: List<TopLevelDestination>,
+    currentDestination: NavDestination?,
+    onNavigateToDestination: (TopLevelDestination) -> Unit
+) {
+    BFilesNavigationBar {
+        destinations.forEach { destination ->
+            val selected = currentDestination.isTopLevelDestinationInHierarchy(destination)
+            BFilesNavigationBarItem(
+                selected = selected,
+                onClick = {
+                    onNavigateToDestination(destination)
+                },
+                selectedIcon = destination.selectedIcon,
+                unselectedIcon = destination.unselectedIcon,
+                label = stringResource(id = destination.iconTextResId)
+            )
+        }
+    }
+}
+
+private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) =
+    this?.hierarchy?.any {
+        println("destName : ${destination.name}")
+        it.route?.contains(destination.name, true) ?: false
+    } ?: false
 
 
 @Preview

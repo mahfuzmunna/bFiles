@@ -11,19 +11,17 @@ import androidx.compose.material.icons.filled.Folder
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
-import me.mahfuzmunna.bfiles.designsystem.component.BFilesStorageOverviewContainer
 import me.mahfuzmunna.bfiles.designsystem.component.BFilesStorageItem
+import me.mahfuzmunna.bfiles.designsystem.component.BFilesStorageOverviewContainer
 import me.mahfuzmunna.bfiles.designsystem.theme.BFilesTheme
 
 @Composable
-fun HomeRoute(modifier: Modifier = Modifier) {
-
+fun HomeRoute() {
+    HomeScreen()
 }
 
 @Composable
-fun HomeScreen(navController : NavHostController) {
+fun HomeScreen() {
     Box(
         modifier = Modifier
 //            .addGradientToBox(MaterialTheme.colorScheme)
@@ -40,14 +38,13 @@ fun HomeScreen(navController : NavHostController) {
                 if (externalStorage != null) {
                     BFilesStorageItem(
                         title = "Internal Storage",
-                        subtitle = "${externalStorage.absolutePath} ${externalStorage.freeSpace/(1024*1024*1024)} GB/${externalStorage.totalSpace/(1024*1024*1024)} GB",
+                        subtitle = "${externalStorage.absolutePath} ${externalStorage.freeSpace / (1024 * 1024 * 1024)} GB/${externalStorage.totalSpace / (1024 * 1024 * 1024)} GB",
                         leadingIcon = Icons.Filled.Folder,
                         trailingIcon = Icons.Filled.Diamond
                     ) {
 
                     }
                 }
-
 
             }
         }
@@ -59,10 +56,10 @@ fun HomeScreen(navController : NavHostController) {
 @Composable
 private fun HomeScreenPreview() {
     BFilesTheme {
-        HomeScreen(rememberNavController())
+        HomeScreen()
     }
 }
 
-private fun storageSpaceText(bytes : Long) : Double {
+private fun storageSpaceText(bytes: Long): Double {
     return bytes.div(1024).toDouble()
 }

@@ -1,4 +1,7 @@
 package me.mahfuzmunna.bfiles.feature.home
 
-class HomeViewModel {
+import androidx.lifecycle.ViewModel
+
+class HomeViewModel : ViewModel() {
+
 }

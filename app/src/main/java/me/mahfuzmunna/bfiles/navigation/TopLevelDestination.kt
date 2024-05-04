@@ -22,7 +22,7 @@ enum class TopLevelDestination(
         iconTextResId = R.string.feature_home_nav_title,
         titleTextResId = R.string.feature_home_title
     ),
-    FILE_SYSTEM(
+    MY_FILES(
         selectedIcon = Icons.Filled.Folder,
         unselectedIcon = Icons.Outlined.Folder,
         iconTextResId = R.string.feature_filesystem_nav_title,

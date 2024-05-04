@@ -29,6 +29,7 @@ class BFilesAppState(
     val currentDestination: NavDestination?
         @Composable get() = navController.currentBackStackEntryAsState().value?.destination
 
+    val topLevelDestinations : List<TopLevelDestination> = TopLevelDestination.entries
 
     fun bFilesNavigateToTopLevelDestinations(topLevelDestination: TopLevelDestination) {
         val topLevelNavOptions = navOptions {
@@ -38,7 +39,7 @@ class BFilesAppState(
         }
         when (topLevelDestination) {
             TopLevelDestination.HOME -> navController.navigateToHome(topLevelNavOptions)
-            TopLevelDestination.FILE_SYSTEM -> navController.navigateToMyFiles(topLevelNavOptions)
+            TopLevelDestination.MY_FILES -> navController.navigateToMyFiles(topLevelNavOptions)
             TopLevelDestination.EXTENSIONS -> navController.navigateToExtensions(topLevelNavOptions)
         }
     }
