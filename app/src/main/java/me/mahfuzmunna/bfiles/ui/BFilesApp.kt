@@ -87,7 +87,7 @@ fun BFilesApp(
                         // open settings modalsheet
                     }
 
-                    BFilesNavHost(appState.navController)
+                    BFilesNavHost(appState)
                 }
             }
         }

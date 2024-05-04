@@ -2,16 +2,19 @@ package me.mahfuzmunna.bfiles.navigation
 
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavHostController
+import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import me.mahfuzmunna.bfiles.feature.home.HomeScreen
+import me.mahfuzmunna.bfiles.ui.BFilesAppState
 
 @Composable
 fun BFilesNavHost(
-    navController: NavHostController
+    appState: BFilesAppState,
+    modifier : Modifier = Modifier
 ) {
-    NavHost(navController = navController, startDestination = BFilesScreen.Overview.routeName) {
+    val navController = appState.navController
+    NavHost(navController = navController, startDestination = BFilesScreen.Overview.routeName, modifier = modifier) {
         composable(BFilesScreen.Overview.routeName) {
             HomeScreen(navController)
         }
