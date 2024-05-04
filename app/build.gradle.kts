@@ -69,6 +69,7 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.lifecycle.runtimeKtx)
     implementation(libs.androidx.lifecycle.viewmodelCompose)
+    implementation(libs.androidx.navigation.compose)
 
 //    implementation(project(":core:data"))
 //    implementation(project(":core:designsystem"))
