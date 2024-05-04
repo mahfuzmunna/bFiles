@@ -7,28 +7,30 @@ androidxComposeBom = "2024.04.01"
 androidxCoreKtx = "1.13.0"
 androidxCoreSplashscreen = "1.0.1"
 androidxLifecycle = "2.7.0"
+androidxNavigation = "2.7.4"
 androidxTestExtJunit = "1.1.5"
 androidxTestEspresso = "3.5.1"
 junit = "4.13.2"
 kotlinAndroid = "1.9.0"
 
 [libraries]
-accompanist-permissions = {group = "com.google.accompanist", name ="accompanist-permissions", version.ref = "accompanist" }
+accompanist-permissions = { group = "com.google.accompanist", name = "accompanist-permissions", version.ref = "accompanist" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivityCompose" }
-androidx-appcompat = {group = "androidx.appcompat", name ="appcompat", version.ref = "androidxAppCompat"}
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppCompat" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
 androidx-compose-animation = { group = "androidx.compose.animation", name = "animation" }
-androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation"}
-androidx-compose-foundationLayout = { group = "androidx.compose.foundation", name = "foundation-layout"}
-androidx-compose-material3 = {group = "androidx.compose.material3", name= "material3"}
-androidx-compose-materialIconsExtended = {group = "androidx.compose.material", name="material-icons-extended"}
+androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+androidx-compose-foundationLayout = { group = "androidx.compose.foundation", name = "foundation-layout" }
+androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+androidx-compose-materialIconsExtended = { group = "androidx.compose.material", name = "material-icons-extended" }
 androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime" }
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-compose-uiGraphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCoreKtx" }
-androidx-core-splashscreen = {group = "androidx.core", name="core-splashscreen", version.ref= "androidxCoreSplashscreen"}
+androidx-core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "androidxCoreSplashscreen" }
 androidx-lifecycle-runtimeKtx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
 androidx-lifecycle-viewmodelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "androidxLifecycle" }
+android-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidxNavigation" }
 
 androidx-compose-uiTestJunit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-uiTestManifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
