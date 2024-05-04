@@ -33,7 +33,7 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import me.mahfuzmunna.bfiles.ui.extension.addGradientToBox
+import me.mahfuzmunna.bfiles.designsystem.extension.addGradientToBox
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

@@ -1,4 +1,4 @@
-package me.mahfuzmunna.bfiles.ui.extension
+package me.mahfuzmunna.bfiles.designsystem.extension
 
 import androidx.compose.material3.ColorScheme
 import androidx.compose.ui.Modifier

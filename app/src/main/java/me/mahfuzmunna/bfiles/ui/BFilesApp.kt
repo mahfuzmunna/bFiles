@@ -25,7 +25,7 @@ import me.mahfuzmunna.bfiles.designsystem.theme.BFilesTheme
 import me.mahfuzmunna.bfiles.navigation.BFilesNavHost
 import me.mahfuzmunna.bfiles.navigation.BFilesScreen
 import me.mahfuzmunna.bfiles.navigation.TopLevelDestination
-import me.mahfuzmunna.bfiles.ui.extension.addGradientToBox
+import me.mahfuzmunna.bfiles.designsystem.extension.addGradientToBox
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
