@@ -23,7 +23,6 @@ import me.mahfuzmunna.bfiles.designsystem.component.BFilesTopAppBar
 import me.mahfuzmunna.bfiles.designsystem.extension.addGradientToBox
 import me.mahfuzmunna.bfiles.designsystem.theme.BFilesTheme
 import me.mahfuzmunna.bfiles.navigation.BFilesNavHost
-import me.mahfuzmunna.bfiles.navigation.BFilesScreen
 import me.mahfuzmunna.bfiles.navigation.TopLevelDestination
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -50,19 +49,7 @@ fun BFilesApp(
                                 selected = it == selectedBottomBarItem,
                                 onClick = {
                                     onSelectedBottomBarItem(it)
-                                    when (it) {
-                                        TopLevelDestination.HOME -> appState.navController.navigate(
-                                            BFilesScreen.Overview.routeName
-                                        )
-
-                                        TopLevelDestination.FILE_SYSTEM -> appState.navController.navigate(
-                                            BFilesScreen.MyFiles.routeName
-                                        )
-
-                                        TopLevelDestination.EXTENSIONS -> appState.navController.navigate(
-                                            BFilesScreen.Extensions.routeName
-                                        )
-                                    }
+                                    appState.bFilesNavigateToTopLevelDestinations(it)
                                 },
                                 selectedIcon = it.selectedIcon,
                                 unselectedIcon = it.unselectedIcon,
