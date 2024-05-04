@@ -16,7 +16,11 @@ import androidx.navigation.compose.rememberNavController
 import me.mahfuzmunna.bfiles.designsystem.component.BFilesStorageOverviewContainer
 import me.mahfuzmunna.bfiles.designsystem.component.BFilesStorageItem
 import me.mahfuzmunna.bfiles.designsystem.theme.BFilesTheme
-import me.mahfuzmunna.bfiles.navigation.BFilesScreen
+
+@Composable
+fun HomeRoute(modifier: Modifier = Modifier) {
+
+}
 
 @Composable
 fun HomeScreen(navController : NavHostController) {
@@ -40,7 +44,7 @@ fun HomeScreen(navController : NavHostController) {
                         leadingIcon = Icons.Filled.Folder,
                         trailingIcon = Icons.Filled.Diamond
                     ) {
-                        navController.navigate(BFilesScreen.MyFiles.routeName)
+
                     }
                 }
 
