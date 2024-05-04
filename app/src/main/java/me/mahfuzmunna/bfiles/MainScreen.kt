@@ -21,6 +21,7 @@ import me.mahfuzmunna.bfiles.designsystem.component.BFilesNavigationBar
 import me.mahfuzmunna.bfiles.designsystem.component.BFilesNavigationBarItem
 import me.mahfuzmunna.bfiles.designsystem.component.BFilesTopAppBar
 import me.mahfuzmunna.bfiles.designsystem.theme.BFilesTheme
+import me.mahfuzmunna.bfiles.navigation.BFilesNavHost
 import me.mahfuzmunna.bfiles.navigation.TopLevelDestination
 import me.mahfuzmunna.bfiles.ui.extension.addGradientToBox
 
@@ -68,6 +69,8 @@ fun MainScreen(
                     ) {
                         // open settings modalsheet
                     }
+
+                    BFilesNavHost()
                 }
             }
         }
