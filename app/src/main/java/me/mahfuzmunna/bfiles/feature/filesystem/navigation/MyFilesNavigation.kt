@@ -2,6 +2,7 @@ package me.mahfuzmunna.bfiles.feature.filesystem.navigation
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavOptions
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
@@ -9,10 +10,10 @@ import androidx.navigation.navArgument
 const val FILES_PATH_ARG = "pathUri"
 const val MY_FILES_ROUTE_BASE = "my_files_route"
 const val MY_FILES_ROUTE = "$MY_FILES_ROUTE_BASE?$FILES_PATH_ARG=$FILES_PATH_ARG"
-fun NavController.navigateToMyFiles(filesPathUri: String? = null) {
+fun NavController.navigateToMyFiles(navOptions: NavOptions, filesPathUri: String? = null) {
     val route =
         if (filesPathUri != null) "$MY_FILES_ROUTE_BASE?$FILES_PATH_ARG=$filesPathUri" else MY_FILES_ROUTE_BASE
-    navigate(route)
+    navigate(route, navOptions)
 }
 
 fun NavGraphBuilder.myFilesScreen() {
