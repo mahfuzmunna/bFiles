@@ -17,15 +17,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.compose.rememberNavController
 import me.mahfuzmunna.bfiles.designsystem.component.BFilesNavigationBar
 import me.mahfuzmunna.bfiles.designsystem.component.BFilesNavigationBarItem
 import me.mahfuzmunna.bfiles.designsystem.component.BFilesTopAppBar
+import me.mahfuzmunna.bfiles.designsystem.extension.addGradientToBox
 import me.mahfuzmunna.bfiles.designsystem.theme.BFilesTheme
 import me.mahfuzmunna.bfiles.navigation.BFilesNavHost
 import me.mahfuzmunna.bfiles.navigation.BFilesScreen
 import me.mahfuzmunna.bfiles.navigation.TopLevelDestination
-import me.mahfuzmunna.bfiles.designsystem.extension.addGradientToBox
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -42,8 +41,6 @@ fun BFilesApp(
                 .addGradientToBox(MaterialTheme.colorScheme)
                 .fillMaxSize()
         ) {
-            val navController = rememberNavController()
-
             Scaffold(
                 containerColor = Color.Transparent,
                 bottomBar = {
@@ -54,15 +51,15 @@ fun BFilesApp(
                                 onClick = {
                                     onSelectedBottomBarItem(it)
                                     when (it) {
-                                        TopLevelDestination.HOME -> navController.navigate(
+                                        TopLevelDestination.HOME -> appState.navController.navigate(
                                             BFilesScreen.Overview.routeName
                                         )
 
-                                        TopLevelDestination.FILE_SYSTEM -> navController.navigate(
+                                        TopLevelDestination.FILE_SYSTEM -> appState.navController.navigate(
                                             BFilesScreen.MyFiles.routeName
                                         )
 
-                                        TopLevelDestination.EXTENSIONS -> navController.navigate(
+                                        TopLevelDestination.EXTENSIONS -> appState.navController.navigate(
                                             BFilesScreen.Extensions.routeName
                                         )
                                     }
@@ -90,7 +87,7 @@ fun BFilesApp(
                         // open settings modalsheet
                     }
 
-                    BFilesNavHost(navController)
+                    BFilesNavHost(appState.navController)
                 }
             }
         }
@@ -102,7 +99,10 @@ fun BFilesApp(
 @Composable
 private fun MainScreenPreview() {
     BFilesTheme {
-        BFilesApp(selectedBottomBarItem = TopLevelDestination.HOME, appState = BFilesAppState()) {
+        BFilesApp(
+            selectedBottomBarItem = TopLevelDestination.HOME,
+            appState = rememberBFilesAppState()
+        ) {
 
         }
     }

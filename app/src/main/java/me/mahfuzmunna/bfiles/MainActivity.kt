@@ -15,7 +15,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import me.mahfuzmunna.bfiles.designsystem.theme.BFilesTheme
 import me.mahfuzmunna.bfiles.ui.BFilesApp
-import me.mahfuzmunna.bfiles.ui.EnableFileAccessView
+import me.mahfuzmunna.bfiles.common.EnableFileAccessView
 import me.mahfuzmunna.bfiles.ui.rememberBFilesAppState
 
 class MainActivity : AppCompatActivity() {

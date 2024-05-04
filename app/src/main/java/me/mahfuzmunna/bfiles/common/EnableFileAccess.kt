@@ -1,4 +1,4 @@
-package me.mahfuzmunna.bfiles.ui
+package me.mahfuzmunna.bfiles.common
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
