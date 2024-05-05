@@ -38,7 +38,17 @@ fun HomeScreen() {
                 if (externalStorage != null) {
                     BFilesStorageItem(
                         title = "Internal Storage",
-                        subtitle = "${externalStorage.absolutePath} ${externalStorage.freeSpace.toDouble() / (1024 * 1024 * 1024)} GB/${externalStorage.totalSpace.toDouble() / (1024 * 1024 * 1024)} GB",
+                        subtitle = "${
+                            String.format(
+                                "%.2f",
+                                externalStorage.freeSpace.toDouble() / (1024 * 1024 * 1024)
+                            )
+                        } GB out of ${
+                            String.format(
+                                "%.2f",
+                                externalStorage.totalSpace.toDouble() / (1024 * 1024 * 1024)
+                            )
+                        } GB",
                         leadingIcon = Icons.Filled.Folder,
                         trailingIcon = Icons.Filled.Diamond
                     ) {
