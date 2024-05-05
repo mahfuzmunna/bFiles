@@ -54,17 +54,21 @@ fun BFilesApp(
             ) { padding ->
                 Log.d("BFILES", "$padding is unused")
                 Column {
-                    BFilesTopAppBar(
-                        title = "Overview", colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                            containerColor = Color.Transparent
-                        ),
-                        navigationIcon = Icons.Filled.Search,
-                        onNavigationClick = {
-                            // open search panel
-                        },
-                        actionsIcon = Icons.Filled.Settings
-                    ) {
-                        // open settings modalsheet
+                    val destination = appState.currentTopLevelDestination
+                    if (destination != null) {
+                        BFilesTopAppBar(
+                            titleTextResId = destination.titleTextResId,
+                            colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                                containerColor = Color.Transparent
+                            ),
+                            navigationIcon = Icons.Filled.Search,
+                            onNavigationClick = {
+                                // open search panel
+                            },
+                            actionsIcon = Icons.Filled.Settings
+                        ) {
+                            // open settings modalsheet
+                        }
                     }
 
                     BFilesNavHost(appState)
@@ -100,6 +104,7 @@ fun BFilesBottomBar(
 private fun NavDestination?.isTopLevelDestinationInHierarchy(destination: TopLevelDestination) =
     this?.hierarchy?.any {
         println("destName : ${destination.name}")
+        println("hierarchy : ${this.route}")
         it.route?.contains(destination.name, true) ?: false
     } ?: false
 

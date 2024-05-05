@@ -20,7 +20,7 @@ import me.mahfuzmunna.bfiles.designsystem.theme.BFilesTheme
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun BFilesTopAppBar(
-    title: String,
+    titleTextResId: Int,
     colors: TopAppBarColors,
     navigationIcon: ImageVector,
     onNavigationClick: () -> Unit = {},
@@ -29,7 +29,7 @@ fun BFilesTopAppBar(
 ) {
     CenterAlignedTopAppBar(
         title = {
-            Text(text = title)
+            Text(text = stringResource(id = titleTextResId))
         },
         colors = colors,
         navigationIcon = {
@@ -57,7 +57,7 @@ fun BFilesTopAppBar(
 private fun BFilesTopAppBarPreview() {
     BFilesTheme {
         BFilesTopAppBar(
-            title = "BFilesTopBar",
+            titleTextResId = R.string.feature_home_title,
             colors = TopAppBarDefaults.centerAlignedTopAppBarColors(),
             navigationIcon = Icons.Filled.TipsAndUpdates,
             actionsIcon = Icons.Filled.Settings,
