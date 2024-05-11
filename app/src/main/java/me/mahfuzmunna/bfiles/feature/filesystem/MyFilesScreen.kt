@@ -1,11 +1,14 @@
 package me.mahfuzmunna.bfiles.feature.filesystem
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.consumeAsFlow
@@ -31,9 +34,10 @@ fun MyFilesScreen(
         BFilesFileSystemViewContainer(
             path = viewModel.currentPath.value.trim().splitToSequence('/')
                 .filter { it.isNotEmpty() }.toList(),
-            listOfFiles = filesInPath
+            listOfFiles = filesInPath,
+            onItemClick = viewModel::onItemCLicked
         )
-        val currentDir = viewModel.currentDirectory
+        val currentDir = File(viewModel.currentPath.value)
         val watchChannel = currentDir.asWatchChannel(scope = coroutineScope).consumeAsFlow()
             .collectAsState(initial = null)
 
@@ -51,6 +55,8 @@ fun MyFilesScreen(
                 viewModel.listOfFiles.addAll(it)
             }
         }
+
+        Spacer(modifier = Modifier.height(24.dp))
 
     }
 }
