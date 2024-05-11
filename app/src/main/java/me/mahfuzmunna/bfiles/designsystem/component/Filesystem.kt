@@ -26,6 +26,7 @@ import java.io.File
 fun BFilesFileSystemViewContainer(
     path: List<String> = listOf("Internal Storage"),
     listOfFiles: Array<File>?,
+    onItemClick : (File) -> Unit
 ) {
     Column {
         Text(text = path.joinToString { "$it/" }, modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp))
@@ -39,7 +40,7 @@ fun BFilesFileSystemViewContainer(
                             leadingIcon = if (it.isFile) Icons.Filled.FileCopy else Icons.Filled.Folder,
                             trailingIcon = Icons.Filled.MoreVert
                         ) {
-
+                            onItemClick(it)
                         }
                     }
                 }
@@ -58,14 +59,14 @@ fun BFilesFileSytemViewItem(
     leadingIcon: ImageVector,
     trailingIcon: ImageVector,
     onTrailingClick: () -> Unit = {},
-    onCLick: () -> Unit
+    onClick: () -> Unit
 ) {
     ListItem(
         headlineContent = {
             Text(text = title)
         },
         modifier = modifier.clickable {
-            onCLick()
+            onClick()
         },
         leadingContent = {
             Icon(imageVector = leadingIcon, contentDescription = "leadingIcon")
@@ -87,6 +88,8 @@ fun BFilesFileSytemViewItem(
 @Composable
 private fun BFilesFileSytemContentPreview() {
     BFilesTheme {
-        BFilesFileSystemViewContainer(listOfFiles = arrayOf(File("/Home")))
+        BFilesFileSystemViewContainer(listOfFiles = arrayOf(File("/Home"))) {
+
+        }
     }
 }
