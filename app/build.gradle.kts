@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "me.mahfuzmunna.bfiles"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
