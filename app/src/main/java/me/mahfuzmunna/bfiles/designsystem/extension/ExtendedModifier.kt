@@ -1,5 +1,6 @@
 package me.mahfuzmunna.bfiles.designsystem.extension
 
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.material3.ColorScheme
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.drawWithCache
@@ -34,4 +35,9 @@ fun Modifier.addGradientToBox(colorScheme: ColorScheme): Modifier {
             drawRect(bottomGradient)
         }
     }
+}
+
+fun Modifier.fillMaxAvailableHeight() {
+    //calculate fraction available
+    this.fillMaxHeight()
 }
