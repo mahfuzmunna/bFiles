@@ -1,17 +1,56 @@
 package me.mahfuzmunna.bfiles.feature.filesystem
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.consumeAsFlow
+import me.mahfuzmunna.bfiles.designsystem.component.BFilesFileSystemViewContainer
+import java.io.File
 
 @Composable
 fun MyFilesRoute(
     modifier: Modifier = Modifier,
-    onItemClick : () -> Unit
+    onItemClick: () -> Unit,
+    viewModel: MyFilesViewModel = viewModel<MyFilesViewModel>()
 ) {
-    MyFilesScreen()
+    MyFilesScreen(viewModel)
 }
 
 @Composable
-fun MyFilesScreen() {
-    TODO("Not yet implemented")
+fun MyFilesScreen(
+    viewModel: MyFilesViewModel,
+    coroutineScope: CoroutineScope = rememberCoroutineScope()
+) {
+    Column {
+        val filesInPath = viewModel.listOfFiles.toTypedArray().sortedArray()
+        BFilesFileSystemViewContainer(
+            path = viewModel.currentPath.value.trim().splitToSequence('/')
+                .filter { it.isNotEmpty() }.toList(),
+            listOfFiles = filesInPath
+        )
+        val currentDir = viewModel.currentDirectory
+        val watchChannel = currentDir.asWatchChannel(scope = coroutineScope).consumeAsFlow()
+            .collectAsState(initial = null)
+
+//        if (watchChannel.value != null) {
+//            // update files list
+//            println("watched : ${watchChannel.value!!.file}")
+//            File(viewModel.currentPath.value).listFiles()?.let {
+//                viewModel.listOfFiles.clear()
+//                viewModel.listOfFiles.addAll(it)
+//            }
+//        }
+        LaunchedEffect(key1 = watchChannel.value) {
+            File(viewModel.currentPath.value).listFiles()?.let {
+                viewModel.listOfFiles.clear()
+                viewModel.listOfFiles.addAll(it)
+            }
+        }
+
+    }
 }
