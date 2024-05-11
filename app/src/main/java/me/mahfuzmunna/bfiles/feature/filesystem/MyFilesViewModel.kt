@@ -10,6 +10,8 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.launch
 import java.io.File
+import kotlin.io.path.Path
+import kotlin.io.path.pathString
 
 class MyFilesViewModel : ViewModel() {
     val currentPath = mutableStateOf(Environment.getExternalStorageDirectory().path)
@@ -22,7 +24,6 @@ class MyFilesViewModel : ViewModel() {
     }
     // FileEvent occurred -> reload item
 
-    val currentDirectory = File(currentPath.value)
 //    val watchChannel = currentDirectory.asWatchChannel()
 
 
@@ -34,6 +35,13 @@ class MyFilesViewModel : ViewModel() {
             // already at parent dir
         } else {
             currentPath.value = currentPath.value.dropLastWhile { it == '/' }
+        }
+    }
+
+    fun onItemCLicked(file: File) {
+        if (file.isDirectory) {
+            //open directory
+            currentPath.value = Path(currentPath.value, file.name).pathString
         }
     }
 }
