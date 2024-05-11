@@ -6,6 +6,7 @@ import androidx.navigation.NavOptions
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import me.mahfuzmunna.bfiles.feature.filesystem.MyFilesRoute
 
 const val FILES_PATH_ARG = "pathUri"
 const val MY_FILES_ROUTE_BASE = "my_files_route"
@@ -27,6 +28,6 @@ fun NavGraphBuilder.myFilesScreen() {
             }
         )
     ) {
-
+        MyFilesRoute(onItemClick = { /*TODO*/ })
     }
 }
